@@ -1,161 +1,253 @@
-"use client";
+import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-import { useState } from "react";
+const featured = [
+  {
+    name: "Moonlit Pearl Necklace",
+    category: "Necklaces",
+    price: "$148",
+    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Arc Gold Hoops",
+    category: "Earrings",
+    price: "$92",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Luna Chain Bracelet",
+    category: "Bracelets",
+    price: "$76",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Solstice Ring",
+    category: "Rings",
+    price: "$124",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+const craftSteps = [
+  {
+    step: "01",
+    title: "Design",
+    text: "Sketched and refined for balance, comfort, and everyday wear.",
+  },
+  {
+    step: "02",
+    title: "Handcraft",
+    text: "Metals and stones shaped by hand in small, considered batches.",
+  },
+  {
+    step: "03",
+    title: "Finish",
+    text: "Polished, inspected, and prepared with meticulous care.",
+  },
+];
+
+const highlights = [
+  { label: "Handmade", value: "Every piece" },
+  { label: "Materials", value: "Ethically sourced" },
+  { label: "Since", value: "2018" },
+];
 
 export default function HomePage() {
-  const [showLabel, setShowLabel] = useState(false);
-
   return (
-    <main className="page-container">
-      <header className="site-header">
-        <div className="search-block">
-          <button
-            type="button"
-            className="search-menu"
-            aria-label="Show new style high demand jewelry"
-            onClick={() => setShowLabel((visible) => !visible)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-          <div className="search-field">
-            <input type="search" placeholder="Search jewelry" aria-label="Search jewelry" />
-          </div>
-          {showLabel ? (
-            <div className="search-popup">New style: high demand jewelry</div>
-          ) : null}
-        </div>
+    <div className="site">
+      <Header />
 
-        <div className="brand">
-          <span className="brand-logo" aria-hidden="true">N</span>
-          <div>
-            <div className="brand-name">NEHA</div>
-            <div className="brand-tag">Signature Jewelry</div>
-          </div>
-        </div>
+      <main>
+        {/* Hero */}
+        <section className="hero" aria-label="Introduction">
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <p className="label">Handmade Jewelry</p>
+              <h1>Refined pieces for modern elegance</h1>
+              <p className="lead">
+                Necklaces, earrings, and bracelets designed with intention — crafted to be worn,
+                layered, and treasured.
+              </p>
+              <div className="hero-actions">
+                <a className="btn btn-primary" href="#collections">
+                  Shop Collection
+                </a>
+                <a className="btn btn-ghost" href="#contact">
+                  Custom Order
+                </a>
+              </div>
+              <ul className="hero-trust" aria-label="Brand highlights">
+                {highlights.map((item) => (
+                  <li key={item.label}>
+                    <span className="hero-trust-label">{item.label}</span>
+                    <span className="hero-trust-value">{item.value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <nav className="nav-links">
-          <a href="#collections">Collections</a>
-          <a href="#about">About</a>
-          <a href="#custom">Custom</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-
-      <section className="hero">
-        <div className="hero-ring" aria-hidden="true" />
-        <div className="hero-copy">
-          <span className="eyebrow">Handmade Jewelry</span>
-          <h1>Elegant pieces crafted with modern grace</h1>
-          <p>
-            Discover a refined selection of necklaces, rings, bracelets, and bespoke designs made for everyday luxury.
-          </p>
-          <ul className="hero-features">
-            <li>Premium gemstones</li>
-            <li>Modern silhouettes</li>
-            <li>Custom design service</li>
-          </ul>
-          <a className="button" href="#collections">
-            Explore the Collection
-          </a>
-        </div>
-
-        <div className="hero-card">
-          <div className="hero-card-inner">
-            <p className="hero-card-label">Best Seller</p>
-            <h2>Moonlit Pearl Necklace</h2>
-            <p>A luminous statement piece designed to feel delicate and unforgettable.</p>
-            <div className="hero-card-footer">
-              <span>Handmade</span>
-              <span>Limited Edition</span>
+            <div className="hero-media">
+              <div className="hero-media-frame">
+                <img
+                  src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80"
+                  alt="Handcrafted gold and pearl jewelry"
+                  loading="eager"
+                />
+              </div>
+              <div className="hero-badge">
+                <span className="hero-badge-label">Featured</span>
+                <span className="hero-badge-title">Moonlit Pearl</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="collections" className="collections">
-        <div className="section-heading">
-          <h2>Explore the Collection</h2>
-          <p>Shop refined necklaces, earrings, bracelets, and jewelry sets designed for modern style.</p>
-        </div>
+        {/* Collections */}
+        <section id="collections" className="section">
+          <div className="container">
+            <header className="section-head">
+              <div className="section-head-text">
+                <p className="label">Curated Selection</p>
+                <h2>The Collection</h2>
+              </div>
+              <p className="section-head-desc">
+                Four signature styles — each handmade with premium materials and a timeless finish.
+              </p>
+            </header>
 
-        <div className="cards">
-          <article className="card">
-            <div className="card-content">
-              <span className="new-label">New Collection</span>
-              <h3>Necklaces</h3>
-              <p>Fine pendants and layering chains made with polished elegance.</p>
+            <div className="product-grid">
+              {featured.map((item) => (
+                <article key={item.name} className="product-card">
+                  <a href="#contact" className="product-link" aria-label={`Inquire about ${item.name}`}>
+                    <div className="product-media">
+                      <img src={item.image} alt={item.name} loading="lazy" />
+                      <span className="product-overlay">Inquire</span>
+                    </div>
+                    <div className="product-body">
+                      <span className="product-category">{item.category}</span>
+                      <h3>{item.name}</h3>
+                      <div className="product-meta">
+                        <span className="product-price">{item.price}</span>
+                        <span className="product-handmade">Handmade</span>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              ))}
             </div>
-          </article>
+          </div>
+        </section>
 
-          <article className="card">
-            <img
-              className="product-image"
-              src="https://www.crunchyfashion.com/cdn/shop/files/CFE1928_D_f69e2cad-31ce-4599-a742-c1f6e457a7f5.jpg?v=1684581970"
-              alt="Elegant earrings"
-              loading="lazy"
-            />
-            <div className="card-content">
-              <h3>Earrings</h3>
-              <p>Classic studs, sculptural hoops, and refined drop styles.</p>
+        {/* Craft */}
+        <section id="craft" className="section section-alt">
+          <div className="container">
+            <header className="section-head section-head-center">
+              <p className="label">Our Process</p>
+              <h2>Crafted with intention</h2>
+              <p className="section-head-desc centered">
+                From first sketch to final polish, every NEHA piece follows a thoughtful process.
+              </p>
+            </header>
+
+            <div className="craft-grid">
+              {craftSteps.map((item) => (
+                <article key={item.step} className="craft-card">
+                  <span className="craft-step">{item.step}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
             </div>
-          </article>
+          </div>
+        </section>
 
-          <article className="card">
-            <img
-              className="product-image"
-              src="https://images.karmagear.co.uk/wp-content/uploads/2021/04/Karma-Gear-Friendship-Bracelets-Handmade-Fair-Trade-Gallery-D-E-F.jpg"
-              alt="Bracelet detail"
-              loading="lazy"
-            />
-            <div className="card-content">
-              <h3>Bracelets</h3>
-              <p>Elegant wristwear that balances polished finish with thoughtful detail.</p>
+        {/* About */}
+        <section id="about" className="section">
+          <div className="container about-grid">
+            <div className="about-media">
+              <img
+                src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=900&q=80"
+                alt="Artisan crafting jewelry by hand"
+                loading="lazy"
+              />
             </div>
-          </article>
+            <div className="about-copy">
+              <p className="label">About NEHA</p>
+              <h2>Where craftsmanship meets contemporary design</h2>
+              <p>
+                NEHA creates jewelry that feels personal and polished. Each design is finished by
+                hand using ethically sourced materials — made to complement your style for years to come.
+              </p>
+              <ul className="about-list">
+                <li>Small-batch production for lasting quality</li>
+                <li>Custom commissions available on request</li>
+                <li>Designed for everyday wear and special moments</li>
+              </ul>
+              <a className="btn btn-outline" href="#contact">
+                Start a Conversation
+              </a>
+            </div>
+          </div>
+        </section>
 
-        </div>
-      </section>
-
-      <section id="about" className="about">
-        <div className="section-heading">
-          <h2>About the Brand</h2>
-          <p>Neha&apos;s blends artisan craftsmanship with a contemporary aesthetic, using ethically sourced materials for every piece.</p>
-        </div>
-      </section>
-
-      <section id="custom" className="custom-request">
-        <div className="section-heading">
-          <h2>Custom Jewelry Requests</h2>
-          <p>Share your idea and let us create a custom piece made just for you.</p>
-        </div>
-      </section>
-
-      <section id="contact" className="footer-info">
-        <div className="footer-card">
-          <h2>Styling Tips</h2>
-          <p>Find ideas for layering, mixing metals, and caring for your favorite pieces.</p>
-        </div>
-        <div className="footer-card">
-          <h2>Contact</h2>
-          <p>Reach out via email or social media for custom requests, new arrivals, or styling help.</p>
-          <div className="social-links">
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-              <span aria-hidden="true">📘</span>
-              <span>Facebook</span>
+        {/* CTA */}
+        <section className="cta" aria-label="Custom orders">
+          <div className="container cta-inner">
+            <div className="cta-copy">
+              <p className="label label-light">Bespoke</p>
+              <h2>Create something uniquely yours</h2>
+              <p>Share your vision for a custom piece — rings, necklaces, or gifts made to order.</p>
+            </div>
+            <a className="btn btn-light" href="#contact">
+              Request Custom Design
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-              <span aria-hidden="true">📸</span>
-              <span>Instagram</span>
-            </a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noreferrer">
-              <span aria-hidden="true">🎵</span>
-              <span>TikTok</span>
-            </a>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="section">
+          <div className="container">
+            <header className="section-head section-head-center">
+              <p className="label">Contact</p>
+              <h2>We&apos;d love to hear from you</h2>
+              <p className="section-head-desc centered">
+                For orders, custom requests, or general inquiries.
+              </p>
+            </header>
+
+            <div className="contact-grid">
+              <aside className="contact-aside">
+                <div className="info-card">
+                  <span className="info-label">Email</span>
+                  <a className="info-value" href="mailto:hello@neha-jewelry.com">
+                    hello@neha-jewelry.com
+                  </a>
+                </div>
+                <div className="info-card">
+                  <span className="info-label">Response Time</span>
+                  <span className="info-value">1–2 business days</span>
+                </div>
+                <div className="info-card">
+                  <span className="info-label">Follow</span>
+                  <div className="info-links">
+                    <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+                      Instagram
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+                      Facebook
+                    </a>
+                  </div>
+                </div>
+              </aside>
+
+              <ContactForm />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
