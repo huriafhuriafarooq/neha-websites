@@ -4,28 +4,28 @@ import Header from "./components/Header";
 
 const featured = [
   {
-    name: "Moonlit Pearl Necklace",
+    name: "Handmade Beaded Necklace",
     category: "Necklaces",
-    price: "$148",
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+    price: "PKR 1,450",
+    image: "https://images.unsplash.com/photo-1634867458242-5ce026e688aa?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2hpdGUlMjBiYWNrZ3JvdW5kJTIwYmVhZGVkJTIwbmVja2xhY2V8ZW58MHx8MHx8fDA%3D",
   },
   {
-    name: "Arc Gold Hoops",
-    category: "Earrings",
-    price: "$92",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    name: "Luna Chain Bracelet",
+    name: "Artisan Beaded Bracelet",
     category: "Bracelets",
-    price: "$76",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80",
+    price: "PKR 1,200",
+    image: "https://images.unsplash.com/photo-1719861837593-91dbdd0ed5a0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBiYWNrZ3JvdW5kJTIwYmVhZGVkJTIwbmVja2xhY2V8ZW58MHx8MHx8fDA%3D",
   },
   {
-    name: "Solstice Ring",
-    category: "Rings",
-    price: "$124",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80",
+    name: "Handcrafted Beaded Earrings",
+    category: "Earrings",
+    price: "PKR 1,100",
+    image: "https://images.unsplash.com/photo-1747933508404-3e830409d099?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdoaXRlJTIwYmFja2dyb3VuZCUyMGJlYWRlZCUyMG5lY2tsYWNlfGVufDB8fDB8fHww",
+  },
+  {
+    name: "Boho Beaded Anklet",
+    category: "Anklets",
+    price: "PKR 1,350",
+    image: "https://images.unsplash.com/photo-1642641387710-3f63b060aad0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdoaXRlJTIwYmFja2dyb3VuZCUyMGJlYWRlZCUyMG5lY2tsYWNlfGVufDB8fDB8fHww",
   },
 ];
 
@@ -63,10 +63,10 @@ export default function HomePage() {
         <section className="hero" aria-label="Introduction">
           <div className="container hero-grid">
             <div className="hero-copy">
-              <p className="label">Handmade Jewelry</p>
-              <h1>Refined pieces for modern elegance</h1>
+              <p className="label">Handmade Beaded Jewelry</p>
+              <h1>White and gold beaded necklaces and bracelets</h1>
               <p className="lead">
-                Necklaces, earrings, and bracelets designed with intention — crafted to be worn,
+                Handmade necklaces and bracelets in white and gold tones — designed to be worn,
                 layered, and treasured.
               </p>
               <div className="hero-actions">
